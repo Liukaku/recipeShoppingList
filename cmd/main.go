@@ -25,7 +25,8 @@ func handleRequest(ctx context.Context, event json.RawMessage) (string, error) {
 
 	if method == "GET" {
 		id := jsonEvent.RawPath
-		// remove initial slash from the endpoint, otherwise it will be part of the id
+		// do we to have a separate route for simplifying the result for a shopping list
+		// or should it return both a simplified and everything list?
 		if id == "/all" {
 			return services.GetAllRecipes()
 		} else {
